@@ -91,25 +91,6 @@ if $GDBINIT; then
 	cp gdbinit ~/.gdbinit
 fi
 
-if $ZSH; then
-	echo "+=================+"
-	echo "|Install ZSH..... |"
-	echo "+=================+"
-	sudo apt-get install -y zsh
-	# oh-my-zsh
-	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-	chsh -s /bin/zsh
-	# autojump
-	sudo apt-get install -y autojump
-	# zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ; source ~/.zshrc
-	# DEBUG => dircolors: .dir_colors/dircolors: No such file or directory
-	sudo apt-get install -y dconf-cli
-	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git ~/.solarized
-	cd ~/.solarized ; ./install.sh
-fi
-
-
 if $GIT; then
 	echo "+========================+"
 	echo "|Setup Git & GitHub..... |"
@@ -242,6 +223,28 @@ sudo apt-get install -y nmap
 mkdir ~/Tools/ngrok
 
 
+
+##############################################################################
+
+
+
+if $ZSH; then
+	echo "+=================+"
+	echo "|Install ZSH..... |"
+	echo "+=================+"
+	sudo apt-get install -y zsh
+	# oh-my-zsh
+	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	chsh -s /bin/zsh
+	# autojump
+	sudo apt-get install -y autojump
+	# zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ; source ~/.zshrc
+	# DEBUG => dircolors: .dir_colors/dircolors: No such file or directory
+	sudo apt-get install -y dconf-cli
+	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git ~/.solarized
+	cd ~/.solarized ; ./install.sh
+fi
 
 
 
