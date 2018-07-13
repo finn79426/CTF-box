@@ -71,10 +71,6 @@ if $DIR; then
 	mkdir ~/Tools
 fi
 
-if $ZSHRC; then
-	cd "$(dirname "$0")"
-	cp zshrc ~/.zshrc
-fi
 
 if $VIMRC; then
 	cd "$(dirname "$0")"
@@ -246,6 +242,12 @@ if $ZSH; then
 	sudo apt-get install -y dconf-cli
 	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git ~/.solarized
 	cd ~/.solarized ; ./install.sh
+fi
+
+
+if $ZSHRC; then
+	cd "$(dirname "$0")"
+	cp zshrc ~/.zshrc
 fi
 
 
