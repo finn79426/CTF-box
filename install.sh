@@ -29,6 +29,7 @@ ask ZSH "Install zsh? (y/n):"
 ask GIT "Setup SSH to GitHub? (y/n):"
 ask ZSHRC "Update .zshrc? (y/n)"
 ask VIMRC "Update .vimrc? (y/n)"
+ask TEMPLATE "Update Code templates? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
 
 
@@ -79,6 +80,13 @@ if $VIMRC; then
 	# Vundle Plugin
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
+fi
+
+
+
+if $TEMPLATE; then
+	cd "$(dirname "$0")"
+	cp -r templates .Code_templates
 fi
 
 
