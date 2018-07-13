@@ -56,6 +56,8 @@ set whichwrap+=<,>		" 在一般、選取模式下可以使用左右方向鍵跳�
 set autoread			" 文件在 vim 之外被修改過會自動重新讀取
 set cursorline			" 突顯當前行"
 set cursorcolumn		" 突顯當前列"
+set encoding=utf-8		" 設定編碼模式避免亂碼
+
 
 " solarized theme setting
 syntax enable
