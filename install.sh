@@ -133,6 +133,7 @@ sudo apt-get -y install python-dev libffi-dev build-essential virtualenvwrapper
 sudo -H pip install angr --upgrade
 
 # Pwngdb + Peda
+sudo apt-get install -y gdb
 git clone https://github.com/scwuaptx/peda.git ~/Tools/peda
 cp ~/Tools/peda/.inputrc ~/
 git clone https://github.com/scwuaptx/Pwngdb.git ~/Tools/Pwngdb/
