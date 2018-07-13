@@ -2,11 +2,12 @@ source ~/Tools/peda/peda.py
 source ~/Tools/Pwngdb/pwngdb.py
 source ~/Tools/Pwngdb/angelheap/gdbinit.py
 
-define hook-run
+#define hook-run
 python
 import angelheap
 angelheap.init_angelheap()
 end
+#end
 
 # When inspecting large portions of code the scrollbar works better than 'less'
 set pagination off
