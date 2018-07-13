@@ -230,9 +230,10 @@ mkdir ~/Tools/ngrok
 
 
 if $ZSH; then
-	echo "+=================+"
-	echo "|Install ZSH..... |"
-	echo "+=================+"
+	echo "+======================+"
+	echo "|Install ZSH.....      |"
+	echo "|安裝完後請按 Ctrl + Z |"
+	echo "+======================+"
 	sudo apt-get install -y zsh
 	# oh-my-zsh
 	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
