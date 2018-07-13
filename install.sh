@@ -36,12 +36,35 @@ ask VIMRC "Update .vimrc? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
 
 
+
+if $UPGRADE; then
+	echo "+==========================+"
+	echo "|Updating & Upgrading..... |"
+	echo "+==========================+"
+	sudo apt-get update
+	sudo apt-get -y upgrade
+	sudo apt-get -y dist-upgrade
+	sudo apt-get -y install --fix-missing
+	sudo apt-get -y autoremove
+	sudo apt-get -y autoclean
+	sudo apt-get install -y python-pip python3-pip python-dev libffi-dev build-essential virtualenvwrapper
+	sudo -H pip install pip --upgrade
+	sudo -H pip install --upgrade virtualenv
+	# Install vim
+	sudo apt-get install -y vim
+	sudo apt-get install -y powerline
+	# Install nodejs
+	sudo apt-get install -y nodejs npm
+fi
+
+
 echo "+===========================+"
 echo "|Install Require Tools..... |"
 echo "+===========================+"
 sudo apt-get install -y git		# 預設已有
 sudo apt-get install -y curl
 sudo apt-get install -y gdebi
+
 
 if $DIR; then
 	mkdir ~/Tools
@@ -66,27 +89,6 @@ fi
 if $GDBINIT; then
 	cd "$(dirname "$0")"
 	cp gdbinit ~/.gdbinit
-fi
-
-
-if $UPGRADE; then
-	echo "+==========================+"
-	echo "|Updating & Upgrading..... |"
-	echo "+==========================+"
-	sudo apt-get update
-	sudo apt-get -y upgrade
-	sudo apt-get -y dist-upgrade
-	sudo apt-get -y install --fix-missing
-	sudo apt-get -y autoremove
-	sudo apt-get -y autoclean
-	sudo apt-get install -y python-pip python3-pip python-dev libffi-dev build-essential virtualenvwrapper
-	sudo -H pip install pip --upgrade
-	sudo -H pip install --upgrade virtualenv
-	# Install vim
-	sudo apt-get install -y vim
-	sudo apt-get install -y powerline
-	# Install nodejs
-	sudo apt-get install -y nodejs npm
 fi
 
 if $ZSH; then
