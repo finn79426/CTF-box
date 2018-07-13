@@ -174,7 +174,7 @@ git clone https://github.com/bwall/HashPump.git ~/Tools/Hashpump
 cd ~/Tools/Hashpump
 sudo make
 sudo make install
-cd ~/ ; rm -r ~/Tools/Hashpump
+cd ~/ ; rm -rf ~/Tools/Hashpump
 
 # libnum
 cd /tmp ; git clone https://github.com/hellman/libnum
