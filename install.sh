@@ -24,16 +24,18 @@ function ask()
 }
 
 ask DIR 'Do you want make directory "~/Tools"? (y/n):'
-
 ask UPGRADE "Update and upgrade everything? (y/n):"
-
 ask ZSH "Install zsh? (y/n):"
 ask GIT "Setup SSH to GitHub? (y/n):"
-
-
 ask ZSHRC "Update .zshrc? (y/n)"
 ask VIMRC "Update .vimrc? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
+
+
+
+if $DIR; then
+	mkdir ~/Tools
+fi
 
 
 
@@ -67,10 +69,6 @@ sudo apt-get install -y curl
 sudo apt-get install -y gdebi
 
 
-if $DIR; then
-	mkdir ~/Tools
-fi
-
 
 if $VIMRC; then
 	cd "$(dirname "$0")"
@@ -83,10 +81,7 @@ if $VIMRC; then
 	vim +PluginInstall +qall
 fi
 
-if $GDBINIT; then
-	cd "$(dirname "$0")"
-	cp gdbinit ~/.gdbinit
-fi
+
 
 if $GIT; then
 	echo "+========================+"
@@ -109,10 +104,11 @@ if $GIT; then
 fi
 
 
+
 echo "+=======================+"
 echo "|Install CTF-Tools..... |"
 echo "+=======================+"
-
+##############################################################################
 # Multi architecture
 sudo dpkg --add-architecture i386
 sudo apt-get update
@@ -138,6 +134,10 @@ git clone https://github.com/scwuaptx/peda.git ~/Tools/peda
 cp ~/Tools/peda/.inputrc ~/
 git clone https://github.com/scwuaptx/Pwngdb.git ~/Tools/Pwngdb/
 echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+if $GDBINIT; then
+	cd "$(dirname "$0")"
+	cp gdbinit ~/.gdbinit
+fi
 
 # floss
 mkdir ~/Tools/floss
@@ -244,8 +244,6 @@ if $ZSH; then
 	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git ~/.solarized
 	cd ~/.solarized ; ./install.sh
 fi
-
-
 if $ZSHRC; then
 	cd "$(dirname "$0")"
 	cp zshrc ~/.zshrc
