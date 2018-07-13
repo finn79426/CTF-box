@@ -156,7 +156,7 @@ wget https://s3.amazonaws.com/build-artifacts.floss.flare.fireeye.com/travis/lin
 sudo -H pip install docopt
 git clone https://github.com/hellman/xortool.git ~/Tools/XORtool
 cd ~/Tools/XORtool ; sudo python setup.py install
-cd ~/ ; rm -r ~/Tools/XORtool
+cd ~/ ; rm -rf ~/Tools/XORtool
 
 # EzCryptSolver
 git clone https://github.com/finn79426/EzCryptSolver.git ~/Tools/EzCryptSovlver
