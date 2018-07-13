@@ -58,6 +58,7 @@ if $UPGRADE; then
 fi
 
 
+
 echo "+===========================+"
 echo "|Install Require Tools..... |"
 echo "+===========================+"
@@ -78,12 +79,12 @@ fi
 if $VIMRC; then
 	cd "$(dirname "$0")"
 	cp vimrc ~/.vimrc
-	# Vundle Plugin
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	vim +PluginInstall +qall
 	# vim-Solarized
 	cd /tmp ; git clone https://github.com/altercation/vim-colors-solarized.git
 	cd vim-colors-solarized/colors ; mkdir ~/.vim/colors ; mv solarized.vim ~/.vim/colors/
+	# Vundle Plugin
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim +PluginInstall +qall
 fi
 
 if $GDBINIT; then
