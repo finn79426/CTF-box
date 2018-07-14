@@ -1,5 +1,6 @@
-#export TERM=linux
-#export TERMINFO=/etc/terminfo
+# export
+export EDITOR=vim
+
 # 自訂alias
 alias py='python'
 alias cls='clear'

@@ -85,7 +85,6 @@ if $VIMRC; then
 	# Vundle Plugin
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
-	export EDITOR=vim
 fi
 
 
