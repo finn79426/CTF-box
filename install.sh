@@ -25,6 +25,7 @@ function ask()
 
 ask DIR 'Do you want make directory "~/Tools"? (y/n):'
 ask UPGRADE "Update and upgrade everything? (y/n):"
+ask CRONTAB "Update crontab? (y/n)"
 ask ZSH "Install zsh? (y/n):"
 ask GIT "Setup SSH to GitHub? (y/n):"
 ask ZSHRC "Update .zshrc? (y/n)"
@@ -61,6 +62,10 @@ if $UPGRADE; then
 fi
 
 
+if $CRONTAB; then
+	cd "$(dirname "$0")"
+	crontab "crontab"
+fi
 
 echo "+===========================+"
 echo "|Install Require Tools..... |"

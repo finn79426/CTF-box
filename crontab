@@ -1,0 +1,6 @@
+@reboot sudo apt-get update
+@reboot sudo apt-get -y upgrade
+@reboot sudo apt-get -y dist-upgrade
+@reboot sudo apt-get -y install --fix-missing
+@reboot sudo apt-get -y autoremove
+@reboot sudo apt-get -y autoclean
