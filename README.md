@@ -6,7 +6,7 @@
 
 ```
 git clone https://github.com/finn79426/CTF-box.git
-chmod +x install.sh ; ./install.sh
+cd CTF-box ; chmod +x install.sh ; ./install.sh
 ```
 
 ## Feature
