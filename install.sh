@@ -30,7 +30,7 @@ ask ZSH "Install zsh? (y/n):"
 ask GIT "Setup SSH to GitHub? (y/n):"
 ask ZSHRC "Update .zshrc? (y/n)"
 ask VIMRC "Update .vimrc? (y/n)"
-ask TEMPLATE "Update Code templates? (y/n)"
+ask TEMPLATE "Update Code templates and Snippets? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
 
 
@@ -94,6 +94,7 @@ fi
 if $TEMPLATE; then
 	cd "$(dirname "$0")"
 	cp -r templates .Code_templates
+	cp -rf snippets ~/.vim/
 fi
 
 
