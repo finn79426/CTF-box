@@ -74,6 +74,7 @@ sudo apt-get install -y git		# vagrant 預設已有
 sudo apt-get install -y curl
 sudo apt-get install -y tmux	# vagrant 預設已有
 sudo apt-get install -y gdebi
+sudo apt-get install -y cmake
 
 
 
@@ -84,7 +85,6 @@ if $VIMRC; then
 	cd /tmp ; git clone https://github.com/altercation/vim-colors-solarized.git
 	cd vim-colors-solarized/colors ; mkdir ~/.vim/colors ; mv solarized.vim ~/.vim/colors/
 	# Vundle Plugin
-	sudo apt-get install -y cmake
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
 fi
