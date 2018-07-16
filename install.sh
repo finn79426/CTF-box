@@ -192,7 +192,7 @@ fi
 # floss
 mkdir ~/Tools/floss
 wget https://s3.amazonaws.com/build-artifacts.floss.flare.fireeye.com/travis/linux/dist/floss -P ~/Tools/floss
-
+chmod +x ~/Tools/floss/floss
 
 
 ##############################################################################
