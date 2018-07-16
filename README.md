@@ -47,4 +47,6 @@ cd CTF-box ; chmod +x install.sh ; ./install.sh
 - nmap
 
 
+# Bug
 
+複製 config file 好像會有問題，腳本沒辦法複製過去，需要手動處理。
