@@ -1,9 +1,5 @@
 #!/bin/zsh
-#
-# %FFILE%
-# Copyright (C) %YEAR% %USER% <%MAIL%>
-#
-# Distributed under terms of the %LICENSE% license.
-#
+# By : %USER%
+# Email : %MAIL%
 
 %HERE%

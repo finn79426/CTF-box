@@ -1,8 +1,6 @@
 /*
- * %FFILE%
- * Copyright (C) %YEAR% %USER% <%MAIL%>
- *
- * Distributed under terms of the %LICENSE% license.
+ * By : %USER%
+ * Email : %MAIL%
  */
 
 #include <stdio.h>
@@ -10,7 +8,7 @@
 #include <string.h>
 
 int main(){
-	%HERE%	
+	%HERE%
 	return 0;
 }
 
