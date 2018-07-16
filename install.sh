@@ -2,6 +2,18 @@
 
 # Supply for CTF-box(Vagrant)
 
+# Step 1 : Ask (if all as 'y')
+# Step 2 : Update & Upgrade & Install sys-dev-tools
+# Step 3 : Install Requirement
+# Step 4 : Create Tools dir
+# Step 5 : Crontab Update
+# Step 6 : Update .tmux.conf
+# Step 7 : Update .vimrc
+# Step 8 : Update Code templates
+# Step 9 : Git & GitHub Setting
+# Step 10 : Install CTF-tools
+# Step 11 : Install Zsh
+# ALL DONE !
 
 function ask()
 {
@@ -23,6 +35,8 @@ function ask()
 	done
 }
 
+
+
 ask DIR 'Do you want make directory "~/Tools"? (y/n):'
 ask UPGRADE "Update and upgrade everything? (y/n):"
 ask CRONTAB "Update crontab? (y/n)"
@@ -33,22 +47,6 @@ ask VIMRC "Update .vimrc? (y/n)"
 ask TEMPLATE "Update Code templates and Snippets? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
 ask TMUX "Update .tmux.conf? (y/n)"
-
-
-if $DIR; then
-	mkdir ~/Tools
-fi
-
-if $TMUX; then
-	cd "$(dirname "$0")"
-	cp tmux.conf ~/.tmux.conf
-	git clone https://github.com/racterub/tmux-mem-cpu-load.git ~/.tmux
-	cd ~/.tmux/
-	cmake .
-	sudo make
-	sudo make install
-fi
-
 
 
 
@@ -73,19 +71,40 @@ if $UPGRADE; then
 fi
 
 
+
+echo "+===========================+"
+echo "|Install Require Tools..... |"
+echo "+===========================+"
+sudo apt-get install -y git	# vagrant 預設已有
+sudo apt-get install -y curl
+sudo apt-get install -y tmux	# vagrant 預設已有
+sudo apt-get install -y gdebi
+sudo apt-get install -y cmake
+
+
+
+if $DIR; then
+	mkdir ~/Tools
+fi
+
+
+
 if $CRONTAB; then
 	cd "$(dirname "$0")"
 	crontab "crontab"
 fi
 
-echo "+===========================+"
-echo "|Install Require Tools..... |"
-echo "+===========================+"
-sudo apt-get install -y git		# vagrant 預設已有
-sudo apt-get install -y curl
-sudo apt-get install -y tmux	# vagrant 預設已有
-sudo apt-get install -y gdebi
-sudo apt-get install -y cmake
+
+
+if $TMUX; then
+	cd "$(dirname "$0")"
+	cp tmux.conf ~/.tmux.conf
+	git clone https://github.com/racterub/tmux-mem-cpu-load.git ~/.tmux
+	cd ~/.tmux/
+	cmake .
+	sudo make
+	sudo make install
+fi
 
 
 
@@ -132,10 +151,14 @@ fi
 
 
 
+##############################################################################
+
+
+
 echo "+=======================+"
 echo "|Install CTF-Tools..... |"
 echo "+=======================+"
-##############################################################################
+
 # Multi architecture
 sudo dpkg --add-architecture i386
 sudo apt-get update
@@ -233,6 +256,7 @@ git clone https://github.com/wangyihang/GitHacker.git ~/Tools/GitHacker
 sudo apt-get install -y php
 
 
+
 ##############################################################################
 
 
@@ -281,3 +305,4 @@ fi
 
 
 
+##############################################################################
