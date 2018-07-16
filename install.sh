@@ -32,12 +32,23 @@ ask ZSHRC "Update .zshrc? (y/n)"
 ask VIMRC "Update .vimrc? (y/n)"
 ask TEMPLATE "Update Code templates and Snippets? (y/n)"
 ask GDBINIT "Update .gdbinit? (y/n)"
-
+ask TMUX "Update .tmux.conf? (y/n)"
 
 
 if $DIR; then
 	mkdir ~/Tools
 fi
+
+if $TMUX; then
+	cd "$(dirname "$0")"
+	cp tmux.conf ~/.tmux.conf
+	git clone https://github.com/racterub/tmux-mem-cpu-load.git ~/.tmux
+	cd ~/.tmux/
+	cmake .
+	sudo make
+	sudo make install
+fi
+
 
 
 
