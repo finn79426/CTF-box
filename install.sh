@@ -169,7 +169,7 @@ cd ~/Tools/XORtool ; sudo python setup.py install
 cd ~/ ; rm -rf ~/Tools/XORtool
 
 # EzCryptSolver
-git clone https://github.com/finn79426/EzCryptSolver.git ~/Tools/EzCryptSovlver
+git clone https://github.com/finn79426/EzCryptSolver.git ~/Tools/EzCryptSolver
 cd ~/Tools/EzCryptSovlver ; sudo -H pip install -r requirements.txt
 
 # PKcrack
