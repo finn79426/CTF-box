@@ -2,32 +2,27 @@
 export EDITOR=vim
 
 # 自訂alias
-alias py='python'
 alias cls='clear'
 alias ge='gedit'
-alias wea='curl http://wttr.in/taipei?lang=zh -s | head -n 17'
 alias rm='sudo rm'
 alias apt-get="sudo apt-get"
+alias vimPlug='vim +PluginInstall +qall'
 
 # substitute tool
 alias dpkg="sudo gdebi"
-alias npm='yarn'
 
 # Cryptography
 alias floss='~/Tools/floss/floss'
-alias ezcrypt="python2 ~/Tools/EzCryptSolver/EzSolve.py"
+alias ezcrypt='python ~/Tools/EzCryptSolver/EzSolve.py'
 alias pkcrack='~/Tools/PKcrack/pkcrack'
 
 # NetHacking
 alias nc='ncat'
 alias nmap="sudo nmap"
 
-# 備份用
-alias EditToolList='vim ~/CTF-box/install.sh'
-alias backupconf='~/CTF-box/backup.sh'
-
 # python2.7
 alias python=python2
+alias py='python'
 alias pip='sudo -H pip2'
 
 # Pwn

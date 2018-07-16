@@ -5,20 +5,39 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'					" Branch of powerline
+Plugin 'L9'									" Vim script library
 
-Plugin 'scrooloose/nerdtree'				" 樹狀目錄 (F2)
-Plugin 'scrooloose/nerdcommenter'			" 快速註釋 (F4)
-Plugin 'Chiel92/vim-autoformat'				" 自動格式化 (F8)
+Plugin 'scrooloose/nerdtree'				" 樹狀目錄	(F2)
+Plugin 'scrooloose/nerdcommenter'			" 快速註釋	(F4)
+Plugin 'Chiel92/vim-autoformat'				" 自動格式化(F8)
+Plugin 'xuhdev/SingleCompile'				" 編譯程式	(F5), 執行程式 (F6), Run script (F5)
 
 Plugin 'Yggdroot/indentLine'				" 縮進顯示
 Plugin 'jiangmiao/auto-pairs'				" 符號自動成對
+Plugin 'tpope/vim-surround'					" 符號輔助神器
 Plugin 'tell-k/vim-autopep8'				" Python PEP8 格式化支援
 Plugin 'scrooloose/syntastic'				" 語法檢查
+Plugin 'othree/vim-autocomplpop'			" 代碼補齊
 Plugin 'sheerun/vim-polyglot'				" 各種語言的語法高亮
-Plugin 'aperezdc/vim-template'				" vim 自動模板
-Plugin 'Valloric/YouCompleteMe'				" 自動代碼補齊
-Plugin 'Lokaltog/vim-powerline'				" vim powerline
+Plugin 'aperezdc/vim-template'				" Vim 自動模板
+Plugin 'ap/vim-css-color'					" CSS color preview
+Plugin 'gregsexton/MatchTag'				" HTML tags 對齊
+Plugin 'kien/ctrlp.vim'						" 模糊文件查找
+Plugin 'Lokaltog/vim-powerline'				" Vim powerline
+Plugin 'python_match.vim'					" 不好解釋
+
+Plugin 'MarcWeber/vim-addon-mw-utils'		" Snippet 1
+Plugin 'tomtom/tlib_vim'					" Snippet 2
+Plugin 'honza/vim-snippets'					" Snippet 3
+Plugin 'garbas/vim-snipmate'				" Snippet
+
+" Plugin for tracecode
+Plugin 'hewes/unite-gtags'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite-outline'
+Plugin 'Shougo/vimproc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -54,11 +73,9 @@ set hlsearch			" 高亮搜索結果
 set noexpandtab			" 按下 Tab 時，不會變成4個空白
 set whichwrap+=<,>		" 在一般、選取模式下可以使用左右方向鍵跳行
 set autoread			" 文件在 vim 之外被修改過會自動重新讀取
-set cursorline			" 突顯當前行"
-set cursorcolumn		" 突顯當前列"
+set cursorline			" 突顯當前行
+set cursorcolumn		" 突顯當前列
 set encoding=utf-8		" 設定編碼模式避免亂碼
-
-
 " solarized theme setting
 syntax enable
 set background=dark
@@ -68,50 +85,21 @@ colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"F5 Build & Run"
+" SingleCompile	設定
+nmap <F5> :SCCompile
+nmap <F6> :SCCompileRun
+
+" F5 Run Script
 map <F5> :call CompileRunGcc() <CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'python'
 		exec "! python %"
-	elseif &filetype == 'c'
-		exec "!g++ % -o %<.out"
-		exec "! ./%<.out"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<.out"
-		exec "! ./%<.out"
-	elseif &filetype == 'java'
-		exec "!javac %"
-		exec "! java %<"
-	elseif &filetype == 'html'
-		exec "!chrome % &"
-	elseif &filetype == 'mkd'
-		exec "!~/.vim/markdown.pl % > %.html &"
-		exec "!chrome %.html &"
+	elseif &filetype == 'zsh'
+		exec "! chmod +x %"
+		exec "! ./%"
 	endif
 endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" YouCompleteMe 設定"
-
-" Python 直譯器路徑"
-let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-"let g:ycm_python_binary_path = 'python'
-
-" 是否開啟語意補全
-let g:ycm_seed_identifiers_with_syntax=1
-" 開始補全的字數
-let g:ycm_min_num_of_chars_for_completion=2
-" 補全後自動關閉預覽窗口
-let g:ycm_autoclose_preview_window_after_completion=1
-" 禁止快取匹配項，每次都要重新生成匹配項
-let g:ycm_cache_omnifunc=1
-" 离开插入模式后自动关闭预览窗口
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" 按TAB自動完成匹配
-let g:ycm_key_list_stop_completion = ['<tab>']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
