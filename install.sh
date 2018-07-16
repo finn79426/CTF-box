@@ -70,8 +70,9 @@ fi
 echo "+===========================+"
 echo "|Install Require Tools..... |"
 echo "+===========================+"
-sudo apt-get install -y git		# 預設已有
+sudo apt-get install -y git		# vagrant 預設已有
 sudo apt-get install -y curl
+sudo apt-get install -y tmux	# vagrant 預設已有
 sudo apt-get install -y gdebi
 
 
@@ -79,10 +80,11 @@ sudo apt-get install -y gdebi
 if $VIMRC; then
 	cd "$(dirname "$0")"
 	cp vimrc ~/.vimrc
-	# vim-Solarized
+	# vim-Solarized (這邊安裝的時候可能會有問題，需要手動檢查)
 	cd /tmp ; git clone https://github.com/altercation/vim-colors-solarized.git
 	cd vim-colors-solarized/colors ; mkdir ~/.vim/colors ; mv solarized.vim ~/.vim/colors/
 	# Vundle Plugin
+	sudo apt-get install -y cmake
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
 fi
@@ -205,6 +207,7 @@ git clone https://github.com/w181496/EasySolver.git ~/Tools/EasyWebSolver
 sudo apt-get install -y sqlmap
 
 # TPLmap
+sudo -H pip install pyyaml
 git clone https://github.com/epinna/tplmap.git ~/Tools/tplmap
 
 # commix
@@ -214,6 +217,8 @@ git clone https://github.com/commixproject/commix.git ~/Tools/commix
 sudo -H pip install requests
 git clone https://github.com/wangyihang/GitHacker.git ~/Tools/GitHacker
 
+# php
+sudo apt-get install -y php
 
 
 ##############################################################################
