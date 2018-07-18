@@ -6,10 +6,10 @@ snippet pwn
 snippet remo
 	host = "${1}"
 	port = ${2}
-	r = remote(host, remote)
+	r = remote(host, port)
 
 snippet proc
-	p = process("${1}")
+	r = process("${1}")
 
 snippet sc32
 	"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"
@@ -35,4 +35,34 @@ snippet fmt
 		payload += fmtchar(${2},(system >> i) & 0xff,${3})
 		prev = (system >> i) & 0xff
 
+
+snippet rsa
+	import gmpy
+	import libnum
+
+snippet n2s
+	from libnum import n2s
+
+snippet s2n
+	from libnum import s2n
+
+snippet importpem
+	from Crypto.PublicKey import RSA
+
+	KEY = RSA.importKey(open('${1}.pem','rb').read())
+	n = KEY.n
+	e = KEY.e
+
+snippet b2l
+	from Crypto.Util import number
+
+	${1} = number.bytes_to_long(open('${2}','rb').read())
+
+snippet DESweak
+	from Crypto.Cipher import DES
+
+	key = [ '\x01\x01\x01\x01\x01\x01\x01\x01',
+			'\xFE\xFE\xFE\xFE\xFE\xFE\xFE\xFE',
+			'\xE0\xE0\xE0\xE0\xF1\xF1\xF1\xF1',
+			'\x1F\x1F\x1F\x1F\x1F\x1F\x1F\x1F']
 
