@@ -4,9 +4,13 @@ export EDITOR=vim
 # 自訂alias
 alias cls='clear'
 alias ge='gedit'
+alias wea='curl http://wttr.in/taipei?lang=zh -s | head -n 17'
 alias rm='sudo rm'
+alias lan='sudo pon dsl-provider'
+alias umountbackup='umount /media/howpwn/Backup'
 alias apt-get="sudo apt-get"
 alias vimPlug='vim +PluginInstall +qall'
+alias va='vagrant'
 
 # substitute tool
 alias dpkg="sudo gdebi"
@@ -27,7 +31,10 @@ alias pip='sudo -H pip2'
 
 # Pwn
 alias gdb='gdb -q'
+alias objdump='objdump -M intel'
 alias cs='checksec'
+alias strace="strace -ixv"
+alias ltrace="ltrace -iC"
 alias cyclic_find='~/selfmade_tools/cyclic_find.py'
 alias cx='chmod +x'
 
