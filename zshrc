@@ -17,7 +17,7 @@ alias dpkg="sudo gdebi"
 
 # Cryptography
 alias floss='~/Tools/floss/floss'
-alias ezcrypt='python ~/Tools/EzCryptSolver/EzSolve.py'
+alias solve='python ~/Tools/EzCryptSolver/EzSolve.py'
 alias pkcrack='~/Tools/PKcrack/pkcrack'
 
 # NetHacking
