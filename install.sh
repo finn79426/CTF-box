@@ -194,6 +194,9 @@ mkdir ~/Tools/floss
 wget https://s3.amazonaws.com/build-artifacts.floss.flare.fireeye.com/travis/linux/dist/floss -P ~/Tools/floss
 chmod +x ~/Tools/floss/floss
 
+# radare2
+git clone https://github.com/radare/radare2.git ~/Tools/radare2/
+cd ~/Tools/radare2/ ; sudo sys/install.sh
 
 ##############################################################################
 
