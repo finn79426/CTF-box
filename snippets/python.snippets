@@ -39,6 +39,16 @@ snippet fmt
 snippet rsa
 	import gmpy
 	import libnum
+	from factordb.factordb import FactorDB
+
+
+snippet factor
+	# CLI：factordb <num>
+	f = FactorDB(n)
+	f.connect()
+	p = f.get_factor_list()[0]
+	q = f.get_factor_list()[1]
+	# r = f.get_factor_list()[2]
 
 snippet n2s
 	from libnum import n2s

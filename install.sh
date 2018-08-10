@@ -236,6 +236,9 @@ cd ~/ ; rm -rf ~/Tools/Hashpump
 cd /tmp ; git clone https://github.com/hellman/libnum
 cd libnum ; python setup.py install
 
+# factordb-pycli
+sudo pip install factordb-pycli
+
 
 
 ##############################################################################
