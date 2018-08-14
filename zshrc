@@ -11,6 +11,7 @@ alias umountbackup='umount /media/howpwn/Backup'
 alias apt-get="sudo apt-get"
 alias vimPlug='vim +PluginInstall +qall'
 alias va='vagrant'
+alias npm='sudo npm'
 
 # substitute tool
 alias dpkg="sudo gdebi"
