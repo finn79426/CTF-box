@@ -134,7 +134,7 @@ map <F4> <leader>ci <CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vim-autoformat
-au BufWrite * :Autoformat " 保存時自動格式化
+" au BufWrite * :Autoformat " 保存時自動格式化
 noremap <F8> :Autoformat<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
