@@ -60,7 +60,10 @@ if $UPGRADE; then
 	sudo apt-get -y install --fix-missing
 	sudo apt-get -y autoremove
 	sudo apt-get -y autoclean
-	sudo apt-get install -y python-pip python3-pip python-dev libffi-dev build-essential virtualenvwrapper autopep8
+	sudo apt-get install -y python-pip python3-pip python-dev libffi-dev build-essential virtualenvwrapper 
+	sudo pip install autopep8	# vim-autopep8
+	sudo pip3 install neovim		# deoplete.nvim 
+	sudo apt-get 
 	sudo -H pip install pip --upgrade
 	sudo -H pip install --upgrade virtualenv
 	# Install vim
